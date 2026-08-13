@@ -12,7 +12,7 @@ return(
     playsInline
     className="absolute inset-0 h-full w-full object-cover -z-10"
   >
-    <source src="/public/baby.mp4" type="video/mp4" />
+    <source src="/baby.mp4" type="video/mp4" />
   </video>
 
     <div className="absolute inset-0 h-full w-full object-cover  ">
