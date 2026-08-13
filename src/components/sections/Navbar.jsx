@@ -1,12 +1,13 @@
-import { Heart } from "lucide-react";
+import { useState } from 'react';
+import { Heart, Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { useWishlist } from "../../context/WishlistContext";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 
 import {Link, useLocation} from 'react-router-dom';
-import { Search ,ShoppingBag, User } from 'lucide-react';
 
 function Navbar(){
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
     const isProductDetails = location.pathname.startsWith('/product/');
     const isProfile = location.pathname === '/profile';
@@ -30,7 +31,10 @@ function Navbar(){
       <div className='sticky w-full top-0 z-50 border-b border-black/10 backdrop-blur bg-[#f7f3ed]/95'>
         <div className="flex items-center justify-between w-full h-20 px-8 border border-gray-300" >
 
-          <div className='flex ml-20 items-center gap-8'>
+          <div className='flex ml-4 md:ml-20 items-center gap-4 md:gap-8'>
+            <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
             <Link to="/products">
               <Search size={18}/>
             </Link>
@@ -41,10 +45,10 @@ function Navbar(){
              {navLinks}
            </div>
          ) : (
-           <Link to="/" className='font-serif text-3xl'> ELUME </Link>
+           <Link to="/" className='font-serif text-2xl md:text-3xl'> ELUME </Link>
          )}
 
-         <div className='flex items-center mr-20 gap-5'>
+         <div className='flex items-center mr-4 md:mr-20 gap-4 md:gap-5'>
            <Link to="/wishlist" className="relative flex items-center">
              <Heart size={22} />
              {wishlist.length > 0 && (
@@ -68,7 +72,14 @@ function Navbar(){
         </div>
         
         {!isProductDetails && !isProfile && !isCheckout && (
-          <div className='flex items-center justify-between mx-auto h-10 max-w-3xl px-8'>
+          <div className='hidden md:flex items-center justify-between mx-auto h-10 max-w-3xl px-8'>
+            {navLinks}
+          </div>
+        )}
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className='md:hidden absolute top-20 left-0 w-full bg-[#f7f3ed] border-b border-gray-300 flex flex-col px-8 py-4 gap-4 shadow-lg z-50'>
             {navLinks}
           </div>
         )}

@@ -10,7 +10,7 @@ function EditorialSection() {
             Our Philosophy
           </p>
 
-          <h2 className="mb-8 text-5xl font-light leading-tight">
+          <h2 className="mb-6 md:mb-8 text-3xl md:text-5xl font-light leading-tight">
             Rituals that enrich
             <br />
             everyday moments
@@ -31,7 +31,7 @@ function EditorialSection() {
           <img
             src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop"
             alt="Editorial"
-            className="h-[650px] w-full object-cover"
+            className="h-[400px] md:h-[650px] w-full object-cover"
           />
         </div>
 

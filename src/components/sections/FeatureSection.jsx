@@ -8,7 +8,7 @@ function FeatureSection() {
           <img
             src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop"
             alt="Luxury skincare"
-            className="h-[650px] w-full object-cover"
+            className="h-[400px] md:h-[650px] w-full object-cover"
           />
         </div>
 
@@ -18,7 +18,7 @@ function FeatureSection() {
             Featured Collection
           </p>
 
-          <h2 className="mb-8 text-5xl font-light leading-tight text-neutral-900 ">
+          <h2 className="mb-6 md:mb-8 text-3xl md:text-5xl font-light leading-tight text-neutral-900 ">
             Skincare formulated
             <br />
             for everyday rituals

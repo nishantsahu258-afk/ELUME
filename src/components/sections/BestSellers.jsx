@@ -44,7 +44,7 @@ function BestSellers() {
             Best Sellers
           </p>
 
-          <h2 className="text-5xl font-light">
+          <h2 className="text-3xl md:text-5xl font-light">
             Most Loved Products
           </h2>
         </div>

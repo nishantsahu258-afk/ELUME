@@ -29,7 +29,7 @@ function TestimonialsSection() {
             Testimonials
           </p>
 
-          <h2 className="text-5xl font-light">
+          <h2 className="text-3xl md:text-5xl font-light">
             What our customers say
           </h2>
         </div>
