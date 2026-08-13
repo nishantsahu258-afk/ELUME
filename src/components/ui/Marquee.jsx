@@ -1,0 +1,1 @@
+export default function Marquee() { return <div>Marquee Component</div>; }
