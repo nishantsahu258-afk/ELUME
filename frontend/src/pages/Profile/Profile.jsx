@@ -29,16 +29,14 @@ function Profile() {
     }
   }, [paymentMethods, user]);
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate("/");
   };
 
-
-
-  const handleUpdateProfile = (e) => {
+  const handleUpdateProfile = async (e) => {
     e.preventDefault();
-    const res = updateUser({ name: modalData.name, email: modalData.email });
+    const res = await updateUser({ name: modalData.name, email: modalData.email });
     if (res.success) {
       setActiveModal(null);
     } else {
@@ -46,19 +44,20 @@ function Profile() {
     }
   };
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = async (e) => {
     e.preventDefault();
     if (modalData.newPassword !== modalData.confirmPassword) {
       return alert("Passwords do not match");
     }
-    // Very basic check, in real app need proper hash check
-    if (user.password !== modalData.currentPassword) {
-      return alert("Incorrect current password");
-    }
-    const res = updateUser({ password: modalData.newPassword });
+    const res = await updateUser({
+      currentPassword: modalData.currentPassword,
+      password: modalData.newPassword,
+    });
     if (res.success) {
       setActiveModal(null);
       alert("Password changed successfully");
+    } else {
+      alert(res.message);
     }
   };
 
